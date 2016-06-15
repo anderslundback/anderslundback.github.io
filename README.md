@@ -1,1 +1,1 @@
-# For my personal website, see: www.anderslundback.com
+# For my personal website, see: http://www.anderslundback.com
