@@ -9,7 +9,7 @@ export default class Hello extends Component {
   render() {
     return (
       <div>
-        Hello from react
+        Hello from react!!
         <img src={ keenImage } alt='Commander Keen' />
 
       </div>

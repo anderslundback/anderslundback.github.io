@@ -30,13 +30,14 @@ module.exports = {
   ],
   // We are telling webpack to use "babel-loader" for .js and .jsx files
   module: {
-    rules: [
-      {
+    loaders: [{
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: [
-          'babel-loader',
-        ],
+        loader: "babel-loader",
+        include: __dirname,
+        query: {
+          presets: [ 'es2015', 'react', 'react-hmre' ]
+        },
       },
       // CSS loader to CSS files
       // Files will get handled by css loader and then passed to the extract text plugin
