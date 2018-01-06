@@ -1,5 +1,5 @@
 {
-  "name": "anderslundback.github.io",
+  "name": "build-order-viewer",
   "version":"0.1.0",
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -23,7 +23,6 @@
     "start": "webpack-dev-server --progress --inline --hot"
   },
   "dependencies": {
-    "bulma": "^0.6.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   }

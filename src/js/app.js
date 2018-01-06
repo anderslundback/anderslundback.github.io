@@ -3,58 +3,67 @@ import { render } from 'react-dom';
 
 import '../css/style.css';
 
-import leatherLaneSignImage from '../assets/leather-lane-sign.jpg';
-import tikkaritoImage from '../assets/tikkarito.png';
-import burgerImage from '../assets/singtong.jpg';
-import logoImage from '../assets/farringdon.png';
+var buildOrderArray = ["pp", "rax", "ref", "ref", "pp", "wf", "ref", "sd", "rax?", "pp", "rax", "rax", "ref", "rd", "af"];
+var buildInfoArray = ["@ rax: 2k to spend, usually 20 rifles or 15 + engi", "pp 2: ~20k, 3+ rockets", "@ wf: 2 harvesters and early scouting unit", "@ sd queue MCV, then tanks", "when MCV is in position, ref should be ready", "@ af: hinds / yaks", "@ rd: arty / v2"];
 
-import 'bulma/css/bulma.css';
+function calculateStuff() {
+  const numbers = [1, 2, 3, 8];
+  const doubled = numbers.map(x => x * 2);
+  console.log(doubled);
+}
+
+function ListItem(props) {
+  return <li>{props.value}</li>;
+}
+
+function OrderedList(props) {
+  const array = props.array;
+  const type = props.type;
+  const listItems = array.map((listItem) =>
+    <ListItem key={listItem.toString()}
+              value={listItem} />
+  );
+  if (type === "ol") {
+    return (
+      <ol>
+        {listItems}
+      </ol> 
+    )
+  }
+  else if (type === "ul") {
+    return (
+      <ul>
+        {listItems}
+      </ul> 
+      )
+  }
+  else {
+    return (
+      <p>Please select list type</p>
+    )
+  }
+}
 
 export default class Hello extends Component {
   render() {
+    {calculateStuff()};
     return (
       <div className="wrapper">
-        
-        <nav className="navbar" role="navigation" aria-label="main navigation">
-          <div className="navbar-brand">
-            <img src={ logoImage } alt='farringdon logo' width="30" height="30" />
-            <div className="navbar-item"><a>Home</a></div>
-            <div className="navbar-item">
-              <a>Leather Lane Market</a>
-            </div>
-            <div className="navbar-item">
-              <a>Exmouth Market</a>
-            </div>
-          </div>
-       </nav>
-
-        <section className="hero is-primary">
-        <div className="hero-body">
-          <div className="container">
-            <h1 className="title">
-              Farringdon Foodie
-            </h1>
-            <h2 className="subtitle">
-              Leatherlane Market
-            </h2>
-          </div>
-        </div>
-      </section>
-
+        <header>
+          <h1>OpenRA build orders</h1>
+        </header>
+        <h2>3x ref</h2>
         <section>
-        <div className="container is-marginless is-paddingless">
-          <div className="columns is-marginless is-paddingless">
-            <div className="column is-paddingless full-image"><img src={ burgerImage } alt='Sington Burger' /></div>
-            <div className="column is-paddingless"><img src={ leatherLaneSignImage } alt='Sign' /></div>
-            </div>
-        </div>
-        <div className="column is-paddingless"><img src={ tikkaritoImage } alt='Tikkarito wraps' /></div>
-
+          <h3>Build order</h3>
+          <OrderedList array={buildOrderArray} type={"ol"} />
+          <h3>Build order info</h3>
+          <OrderedList array={buildInfoArray} type={"ul"} />
+          <OrderedList array={buildOrderArray}/>
         </section>
+        <footer>Written by: Anders Lundback</footer>
       </div>
     );
   }
 }
-
 
 render(<Hello />, document.getElementById('app'));
