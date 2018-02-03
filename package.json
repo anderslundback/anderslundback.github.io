@@ -2,7 +2,7 @@
   "name": "anderslundback.github.io",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://anderslundback.github.io",
+  "homepage": "http://anderslundback.github.io",
   "dependencies": {
     "bootstrap": "^4.0.0",
     "react": "^16.2.0",
