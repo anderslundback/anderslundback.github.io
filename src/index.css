@@ -7,3 +7,19 @@ body {
 .btn {
   margin: 0 2px;
 }
+
+.header {
+  height: 720px;
+  width: 100%;
+  display: block;
+  padding-bottom: 20px;
+}
+
+.headerImage {
+  min-height: 600px;
+  background-image: url("assets/images/home-office.png");
+  background-repeat: no-repeat;
+  background-size: 1280px 720px;
+  background-position: center;
+  /*padding: 40px; (If don't want to set min-height or some image content is there) */
+}
