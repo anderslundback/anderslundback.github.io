@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 // import macbookCoffee from './assets/images/macbook-and-coffee.jpg';
-import { HashRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './css/App.css';
 // import Photos from './pages/Photos.js';
 
-const renderNavbar = () => {
+const RenderNavbar = () => {
   return (
     <nav className="navbar">
       <a href="#home">
@@ -31,7 +31,7 @@ const renderNavbar = () => {
   );
 }
 
-const Home = () => <h1>Home</h1>;
+const Home = () => <h1>Home</h1>
 const About = () => <h1>About</h1>;
 const Photos = () => <h1>Photos</h1>;
 const Contact = () => <h1>Contact</h1>;
@@ -40,15 +40,17 @@ const Contact = () => <h1>Contact</h1>;
 class App extends Component {
   render() {
     return (
-      // renderNavbar(),
-      <HashRouter>
-        <Switch>
-          <Route exact path="/" render={() => Home()}/>          
-          <Route path="/home" render={() => Home()}/>
-          <Route path="/about" render={() => About()}/>          
-          <Route path="/photos" render={() => Photos()}/>
-        </Switch>
-      </HashRouter>
+      <div>
+        {<RenderNavbar />}
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={Home}/>          
+            <Route path="/home" component={Home}/>
+            <Route path="/about" component={About}/>          
+            <Route path="/photos" component={Photos}/>
+          </Switch>
+        </BrowserRouter>
+      </div>
     );
   }
 }
